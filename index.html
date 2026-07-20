@@ -13,5 +13,13 @@
   <script src="js/kpi.js"></script>
   <script src="js/store.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    /* PWA 서비스 워커 등록 — 이게 있어야 "앱 설치"가 가능해짐 */
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch((err) => console.warn('SW 등록 실패', err));
+      });
+    }
+  </script>
 </body>
 </html>
